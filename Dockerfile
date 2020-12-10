@@ -1,5 +1,5 @@
 FROM alpine:3
-RUN apk add --quiet --update --no-cache openjdk8-jre nodejs npm vim
+RUN apk add --quiet --update --no-cache openjdk8-jre nodejs npm vim python3 py3-pip
 RUN npm install -g firebase-tools
 RUN mkdir -p /firebase/volume
 WORKDIR /firebase
