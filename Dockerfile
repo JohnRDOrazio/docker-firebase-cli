@@ -1,7 +1,8 @@
 FROM alpine:3.12.1
 RUN apk add --quiet --update --no-cache openjdk8-jre nodejs npm vim python3 py3-pip sudo
+RUN npm install npm -g --force
+RUN npm install node -g
 RUN npm install -g firebase-tools
-RUN sudo chown -R 65534:0 "/root/.npm"
 RUN mkdir -p /firebase/volume
 WORKDIR /firebase
 COPY entrypoint.sh .
