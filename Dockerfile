@@ -1,8 +1,7 @@
 FROM alpine:3.12.1
 RUN apk add --quiet --update --no-cache openjdk8-jre nodejs npm vim python3 py3-pip sudo
-RUN sudo npm cache clean --force
-#RUN npm update
 RUN npm install -g firebase-tools
+RUN sudo npm cache clean --force
 RUN mkdir -p /firebase/volume
 WORKDIR /firebase
 COPY entrypoint.sh .
@@ -12,7 +11,7 @@ WORKDIR /firebase/volume
 COPY firebase.json .
 COPY firestore-dev.rules .
 # required to launch ui
-ENV FIREBASE_PROJECT_ID=
+ENV FIREBASE_PROJECT_ID=liturgy-of-the-day
 # required to perform some cli operations
 # https://firebase.google.com/docs/cli#cli-ci-systems
 ENV FIREBASE_TOKEN=
