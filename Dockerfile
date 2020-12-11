@@ -1,5 +1,6 @@
 FROM alpine:3.12.1
 RUN apk update && apk upgrade && apk add --quiet --update --no-cache openjdk8-jre nodejs npm vim python3 py3-pip sudo
+RUN npm update
 RUN npm install -g firebase-tools
 RUN mkdir -p /firebase/volume
 WORKDIR /firebase
